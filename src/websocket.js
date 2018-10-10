@@ -59,20 +59,24 @@ function bridgeWs (ws) {
 
 bridgeWs(ws)
 
-export default function wsSend (path, parameters) {
-  const data = {
-    command: {
-      path
-    },
-    parameters
-  }
-  if (ws.readyState === 0) {
-    arr.push(data)
-  } else if (ws.readyState === 2 || ws.readyState === 3) {
-    ws.close()
-    arr.push(data)
-    ws = reConnect(url)
-  } else {
-    send(data)
+export default {
+  ws: ws,
+
+  wsSend (path, parameters) {
+    const data = {
+      command: {
+        path
+      },
+      parameters
+    }
+    if (ws.readyState === 0) {
+      arr.push(data)
+    } else if (ws.readyState === 2 || ws.readyState === 3) {
+      ws.close()
+      arr.push(data)
+      ws = reConnect(url)
+    } else {
+      send(data)
+    }
   }
 }

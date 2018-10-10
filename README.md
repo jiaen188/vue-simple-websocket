@@ -2,6 +2,8 @@
 
 > 在vue中使用 websocket 通信的简单封装
 
+[预览](https://jiaen188.github.io/vue-simple-websocket)
+
 ## 使用
 1. 在main.js中注入 eventBus事件总线
 2. 复制 websocket.js 代码
